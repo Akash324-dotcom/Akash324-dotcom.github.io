@@ -328,3 +328,143 @@ form button:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 10px yellow);
 }
+
+/* MOBILE / TABLET VIEW */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .firstSection {
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 0;
+    }
+
+    .firstSection > div {
+        width: 90%;
+        text-align: center;
+    }
+
+    .leftSection {
+        font-size: 2rem;
+        margin: 40px 0;
+    }
+
+    .rightSection img {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    hr {
+        margin: 30px 20px;
+    }
+
+    .thirdSection {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .AboutMe {
+        width: 90%;
+        text-align: center;
+    }
+
+    #AboutMe {
+        margin: 20px 0;
+    }
+
+    .secondSection {
+        max-width: 90vw;
+    }
+
+    .projects {
+        flex-direction: column;
+        gap: 20px;
+        margin: 40px 0;
+    }
+
+    .project_names {
+        margin: 0 auto;
+        width: 80%;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    #projectDescription {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .skills {
+        max-width: 90vw;
+        font-size: 1rem;
+    }
+
+    .timeline {
+        max-width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        left: 0 !important;
+        margin-bottom: 20px;
+    }
+
+    .container.right {
+        left: 0 !important;
+    }
+
+    .resCV {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .resCV img {
+        width: 80%;
+        height: auto;
+    }
+
+    #contact {
+        padding: 30px 10px;
+    }
+
+    form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 1rem;
+    }
+
+    form button {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
