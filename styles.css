@@ -329,7 +329,6 @@ form button:hover {
     filter: drop-shadow(0 0 10px yellow);
 }
 
-/* MOBILE / TABLET VIEW */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -406,6 +405,7 @@ form button:hover {
 
     #projectDescription {
         width: 90%;
+        height: 50vh;
         margin: 20px auto;
         padding: 20px;
     }
