@@ -135,7 +135,7 @@ hr {
 #projectDescription {
     display: none;
     background-color: rgb(69, 69, 226);
-    height: 30vh;
+    height: 40vh;
     width: 80vw;
     border-radius: 30px;
     padding: 10px;
@@ -468,3 +468,4 @@ form button:hover {
         height: 40px;
     }
 }
+
