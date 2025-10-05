@@ -405,7 +405,7 @@ form button:hover {
 
     #projectDescription {
         width: 90%;
-        height: 50vh;
+        height: 60vh;
         margin: 20px auto;
         padding: 20px;
     }
@@ -468,4 +468,5 @@ form button:hover {
         height: 40px;
     }
 }
+
 
