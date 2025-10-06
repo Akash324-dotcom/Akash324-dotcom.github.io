@@ -12,6 +12,7 @@ const project1 = document.getElementById("project1");
 const project2 = document.getElementById("project2");
 const project3 = document.getElementById("project3");
 const project4 = document.getElementById("project4");
+const project5 = document.getElementById("project5");
 const projectDescription = document.getElementById("projectDescription");
 
 let currentTyped = null;
@@ -23,12 +24,12 @@ function showProject(targetId, strings) {
         currentTyped.destroy();
     }
 
-    document.querySelectorAll("#projecttyped1, #projecttyped2, #projecttyped3, #projecttyped4")
+    document.querySelectorAll("#projecttyped1, #projecttyped2, #projecttyped3, #projecttyped4, #projecttyped5")
         .forEach(el => el.innerHTML = "");
 
     currentTyped = new Typed(targetId, {
         strings: strings,
-        typeSpeed: 10,
+        typeSpeed: 8,
     });
 }
 
@@ -57,6 +58,13 @@ project4.addEventListener("click", () => {
     showProject("#projecttyped4", [
         '<span style="font-size: 56px; color: black; font-weight: bold;">SPA (Student Personal Assistant)</span>',
         'SPA is an AI-powered assistant developed to support students in managing daily tasks efficiently. It automates email handling, scheduling, and reminders while also providing health guidance and budget tracking. The system integrates smart features to improve productivity and reduce stress during academic life. SPA demonstrates how AI can be used to create a practical, user-centric support system for students.'
+    ]);
+});
+
+project5.addEventListener("click", () => {
+    showProject("#projecttyped4", [
+        '<span style="font-size: 56px; color: black; font-weight: bold;">Gemini Chrome Extension</span>',
+        'I developed a Chrome extension using Manifest V3 that integrates Google’s Gemini API to provide AI-powered explanations directly within any webpage. The extension lets users highlight text, right-click to select “Ask Gemini,” and view responses in a custom slide-in sidebar. I also built a secure local proxy server using Node.js and Express to safely handle API requests without exposing keys, ensuring secure and efficient data flow between the browser and Gemini.'
     ]);
 });
 

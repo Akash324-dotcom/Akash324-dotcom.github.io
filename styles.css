@@ -96,17 +96,17 @@ hr {
 
 .box {
     background-color: white;
-    width: 80vw;
+    width: 85vw;
     height: 2px;
-    margin: 20px 0px;
+    margin: 10px 0px;
     display: flex;
 }
 
 .vertical {
     background-color: white;
     height: 50px;
-    width: 2px;
-    margin: 0 250px 0 46px;
+    width: 5px;
+    margin: 0 185px 0 56px;
 }
 
 .projects {
@@ -116,9 +116,10 @@ hr {
 
 .project_names {
     font-size: 1.2rem;
-    margin: 0 150px 0 46px;
+    margin: 0 100px 0 46px;
     color: aquamarine;
     border-color: black;
+    width: 50%;
 }
 
 .project_names:hover {
@@ -135,7 +136,7 @@ hr {
 #projectDescription {
     display: none;
     background-color: rgb(69, 69, 226);
-    height: 40vh;
+    height: 30vh;
     width: 80vw;
     border-radius: 30px;
     padding: 10px;
@@ -374,7 +375,7 @@ form button:hover {
     .thirdSection {
         flex-direction: column;
         align-items: center;
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .AboutMe {
@@ -387,7 +388,7 @@ form button:hover {
     }
 
     .secondSection {
-        max-width: 90vw;
+        max-width: 80vw;
     }
 
     .projects {
@@ -405,7 +406,7 @@ form button:hover {
 
     #projectDescription {
         width: 90%;
-        height: 60vh;
+        height: 50vh;
         margin: 20px auto;
         padding: 20px;
     }
@@ -468,5 +469,3 @@ form button:hover {
         height: 40px;
     }
 }
-
-
