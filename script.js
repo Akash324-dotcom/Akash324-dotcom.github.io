@@ -189,3 +189,16 @@ form.addEventListener('submit', function (e) {
 VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
     max: 10, speed: 400, glare: true, "max-glare": 0.2, scale: 1.02
 });
+
+// ==================================================
+// 7. MOBILE MENU TOGGLE
+// ==================================================
+function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    const btn = document.querySelector('.menu-btn');
+    
+    nav.classList.toggle('active');
+    
+    // Optional: Animate hamburger bars to X
+    // You can add CSS for .menu-btn.active .bar if you want cool animations
+}
