@@ -1,201 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash - Developer Portfolio</title>
+    <title>Akash | Architect of the Future</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 
 <body>
+    <div id="canvas-container"></div>
+    <div class="scanlines"></div>
+
     <header>
-        <nav>
-            <div class="left">Akash's Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li><a href="#firstSection">Home</a></li>
-                    <li><a href="#thirdSection">About</a></li>
-                    <li><a href="#secondSection">Projects</a></li>
-                    <li><a href="#skills">Tech Stack</a></li>
-                    <li><a href="#resume">Resume/CV</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
-                </ul>
-            </div>
+        <nav class="glass-nav">
+            <div class="logo">AKASH<span class="dot">.</span>DEV</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Timeline</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
+
     <main>
-        <section class="firstSection" id="firstSection">
-            <div class="leftSection">Hi! My name is <span class="lightblue">Akash Maity</span>
-                <div>and I am a passionate about
-                    <span class="typed-container">
-                        <span id="element"></span>
-                    </span>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h3 class="greetings">System Online...</h3>
+                <h1 class="glitch-name" data-text="Akash Maity">Akash Maity</h1>
+                <div class="typing-wrapper">
+                    <span>I build </span>
+                    <span id="element"></span>
                 </div>
-            </div>
-            <div class="rightSection"><img src="develop.png.webp" alt=""></div>
-        </section>
-        <hr>
-        <section class="thirdSection" id="thirdSection">
-            <img src="Me.png">
-            <div class="AboutMe">
-                <h1 id="AboutMe">About Me</h1>
-                <span id="Me">
-                    <p>
-                        I am a third-year <strong>Bachelor of Computer Science student</strong> at Dalhousie University
-                        with a
-                        strong passion for building impactful applications that combine innovation with real-world
-                        usability.
-                        My technical skill set includes <strong>Java, Python, Android Studio, web development</strong>,
-                        and workflow automation using <strong>n8n</strong>.
-                    </p><br>
-
-                    <p>
-                        I enjoy working on projects that solve practical problems and enhance user experiences.
-                        Some of my key projects include:
-                    </p><br>
-
-                    <ul>
-                        <li><strong>PetMed</strong> – a medical web platform featuring virtual cats to help regulate
-                            drug dosages.</li>
-                        <li><strong>Chat Application</strong> – a Python-based client-server chat system enabling
-                            real-time communication.</li>
-                        <li><strong>QuickCash</strong> – an Android app for posting short-term job ads, integrated with
-                            Google Maps and PayPal.</li>
-                        <li><strong>SPA</strong> – an AI-powered student assistant agent designed to handle tasks such
-                            as emails, scheduling, health guidance, and budget tracking.</li>
-                    </ul><br>
-
-                    <p>
-                        I thrive in collaborative environments and have experience delivering both team-based and
-                        client-focused projects,
-                        including successfully completing a client project with an <strong>A+ grade</strong>.
-                        My career goal is to contribute to the development of intelligent, user-centric applications
-                        that merge technology
-                        with everyday needs.
-                    </p>
-                </span>
-            </div>
-        </section>
-        <hr>
-        <section class="secondSection" id="secondSection">
-            <span class="text-gray">What I have done so far...</span>
-            <h1>Projects</h1>
-
-            <div class="box">
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-            </div>
-            <div class="projects">
-                <div class="project_names" id="project1" title="Click Me">PetMed</div>
-                <div class="project_names" id="project2" title="Click Me">Chat Application in Server</div>
-                <div class="project_names" id="project3" title="Click Me">QuickCash</div>
-                <div class="project_names" id="project4" title="Click Me">SPA (Student Personal Assistant)</div>
-                <div class="project_names" id="project5" title="Click Me">Gemini Chrome extension</div>
-            </div>
-            <div class="projectDescription" id="projectDescription">
-                <div class="projectdes" id="projectdes1"><span id="projecttyped1"></span></div>
-                <div class="projectdes" id="projectdes2"><span id="projecttyped2"></span></div>
-                <div class="projectdes" id="projectdes3"><span id="projecttyped3"></span></div>
-                <div class="projectdes" id="projectdes4"><span id="projecttyped4"></span></div>
-                <div class="projectdes" id="projectdes5"><span id="projecttyped5"></span></div>
-            </div>
-        </section>
-        <hr>
-        <section class="skills" id="skills">
-            <h1 id="skillset">Tech Stack</h1>
-            <div class="timeline">
-                <div class="container left">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with Python 🐍 – built small automation scripts.</p>
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with Java as my coding platform.</p>
-                    </div>
-                </div>
-                <div class="container left">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with a basic game of "Hand-Cricket", I made using python.</p>
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Dived into Android Development 📱 – built QuickCash app with Google Maps & PayPal.</p>
-                    </div>
-                </div>
-                <div class="container left">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Explored Web Development 🌐 – worked on PetMed medical website.</p>
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2025</h3>
-                        <p>AI & Chatbots 🤖 – created SPA - student assistant (emails, scheduling, budgeting).
-                            Automation with n8n ⚙️ – built workflows & collaborated with ShiftKey Labs.</p>
-                    </div>
-                </div>
-        </section>
-        <hr>
-        <section class="resume" id="resume">
-            <h1 class="resumecv">Resume/CV</h1>
-            <div class="resCV">
-                <div class="resumeSection">
-                    <a href="Resume_Imp.pdf"><img src="Resume.png" alt="" caption="Click for Resume"></a>
-                    <span id="restext">Click to View Resume</span>
-                </div>
-                <div class="CVSection">
-                    <a href="CV_Imp.pdf"><img src="CV.png" alt="" caption="Click for CV"></a>
-                    <span id="restext">Click to View CV</span>
+                <div class="hero-buttons">
+                    <a href="#projects" class="cyber-btn">Initialize Projects</a>
+                    <a href="#resume" class="cyber-btn outline">Access Data</a>
                 </div>
             </div>
         </section>
-        <hr>
-        <section id="contact">
-            <h2>Let’s Connect!</h2>
-            <p>Whether you have an exciting project, a crazy idea, or just want to say hi — I’d love to hear from
-                you!</p>
 
-            <form id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
-                <p id="formMessage"></p>
-            </form>
-
-
-            <div class="social-links">
-                <a href="mailto:akashmaitycad@gmail.com" target="_blank">
-                    <img src="email.png" alt="Email" class="social-icon">
-                </a>
-                <a href="https://github.com/Akash324-dotcom" target="_blank">
-                    <img src="github.png" alt="GitHub" class="social-icon">
-                </a>
-                <a href="https://www.linkedin.com/in/akash-maity-8888a22b3" target="_blank">
-                    <img src="linkedin.png" alt="LinkedIn" class="social-icon">
-                </a>
+        <section id="about" class="section-pad">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <div class="glass-panel about-container" data-tilt>
+                <div class="about-img-wrapper">
+                    <img src="Me.png" alt="Akash Photo" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <p><span class="terminal-prompt">></span> I am a third-year <strong>Computer Science</strong> student at Dalhousie University.</p>
+                    <p><span class="terminal-prompt">></span> My core focus is <strong>Data Engineering & AI</strong>. I build robust <strong>ETL pipelines</strong>, analyze complex datasets using <strong>Python (Pandas) & SQL</strong>, and automate workflows using n8n.</p>
+                    <div class="stats-grid">
+                        <div class="stat-box"><h3>3+</h3><p>Years Exp</p></div>
+                        <div class="stat-box"><h3>6+</h3><p>Projects</p></div>
+                        <div class="stat-box"><h3>A+</h3><p>Grade</p></div>
+                    </div>
+                </div>
             </div>
+        </section>
 
+        <section id="projects" class="section-pad">
+            <h2 class="section-title">Mission <span class="highlight">Log</span></h2>
+            <div class="project-interface">
+                <div class="project-list">
+                    <div class="p-item active" onclick="updateProject(0)">01 // PetMed</div>
+                    <div class="p-item" onclick="updateProject(1)">02 // Chat Server</div>
+                    <div class="p-item" onclick="updateProject(2)">03 // QuickCash</div>
+                    <div class="p-item" onclick="updateProject(3)">04 // SPA Agent</div>
+                    <div class="p-item" onclick="updateProject(4)">05 // Gemini Ext</div>
+                    <div class="p-item" onclick="updateProject(5)">06 // ETL Pipeline</div> </div>
+                <div class="project-display" id="project-screen" data-tilt>
+                    <div class="screen-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <div class="screen-content">
+                        <h3 id="proj-title">Select a Mission</h3>
+                        <div id="proj-desc"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-pad">
+            <h2 class="section-title">Career <span class="highlight">Timeline</span></h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-card left" data-tilt>
+                    <div class="card-content">
+                        <h3>2022 // Initialization</h3>
+                        <p>Mastered <strong>Python 🐍 & Java ☕</strong> foundations. Built automation scripts and "Hand-Cricket" simulations.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card right" data-tilt>
+                    <div class="card-content">
+                        <h3>2023 // Mobile & Web</h3>
+                        <p>Deployed <strong>QuickCash</strong> (Android/Maps API) and engineered <strong>PetMed</strong> web platform.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card left" data-tilt>
+                    <div class="card-content">
+                        <h3>2025 // AI Agents</h3>
+                        <p>Developed <strong>SPA</strong> (AI Assistant) using n8n. Participated in Cognizant's "Watt the Hack" sustainability hackathon.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-card right" data-tilt style="border-color: var(--neon-blue);">
+                    <div class="card-content">
+                        <h3>Late 2025 // Data Engineering</h3>
+                        <p>Focused on <strong>Data Analysis & ETL</strong>. Built data pipelines using Pandas, SQL, and automation tools to transform raw data into actionable insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="section-pad">
+            <h2 class="section-title">Encrypted <span class="highlight">Files</span></h2>
+            <div class="resume-grid">
+                <div class="doc-card" data-tilt onclick="openModal('Resume_Imp.pdf')">
+                    <div class="doc-icon">📄</div>
+                    <h3>Resume_v2.5</h3>
+                    <p>Click to Decrypt</p>
+                </div>
+                <div class="doc-card" data-tilt onclick="openModal('CV_Imp.pdf')">
+                    <div class="doc-icon">💼</div>
+                    <h3>CV_Official</h3>
+                    <p>Click to Decrypt</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-pad">
+            <h2 class="section-title">Establish <span class="highlight">Uplink</span></h2>
+            <div class="contact-wrapper glass-panel">
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Agent Name" required>
+                    <input type="email" name="email" placeholder="Frequency (Email)" required>
+                    <textarea name="message" rows="4" placeholder="Message Content" required></textarea>
+                    <button type="submit" class="cyber-btn">Transmit Message</button>
+                    <p id="formMessage"></p>
+                </form>
+                <div class="social-grid">
+                    <a href="mailto:akashmaitycad@gmail.com" class="social-hex">Email</a>
+                    <a href="https://github.com/Akash324-dotcom" target="_blank" class="social-hex">GitHub</a>
+                    <a href="https://www.linkedin.com/in/akash-maity-8888a22b3" target="_blank" class="social-hex">LinkedIn</a>
+                </div>
+            </div>
         </section>
     </main>
-    <hr>
-    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #555;">
-        © 2025 Akash Maity. All rights reserved. | <a href="mailto:akashmaitycad@gmail.com">Contact</a>
+
+    <footer>
+        <p>© 2025 Akash Maity | System Online</p>
     </footer>
+
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Document Viewer</h3>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <iframe id="pdf-frame" src="" width="100%" height="500px"></iframe>
+            <div class="modal-footer">
+                <a id="download-link" href="" download class="cyber-btn">Download File</a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
