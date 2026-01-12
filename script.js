@@ -59,10 +59,13 @@ initThreeJS();
 // ==================================================
 var typed = new Typed('#element', {
     strings: [
-        'Data Engineering & ETL', 
+        'Data Science', 
         'AI Agents with n8n', 
         'Data Analysis (Pandas/SQL)', 
-        'Secure Android Apps'
+        'Secure Android Apps',
+        'Java Network Programming',
+        'Web Development (HTML/CSS/JS)',
+        'Data Analytics with Power BI'
     ],
     typeSpeed: 40, backSpeed: 30, loop: true, showCursor: true, cursorChar: '_'
 });
@@ -98,9 +101,9 @@ const projectData = [
     },
     {
         // --- NEW DATA ENG PROJECT ---
-        title: "ETL Data Pipeline",
-        desc: "End-to-end data pipeline construction. Extracted raw datasets, performed cleaning and transformation using Pandas, and loaded structured data into SQL databases for analysis. <br><br><strong style='color:#00f3ff'>Tech:</strong> Python, Pandas, SQL, ETL.",
-        link: "https://github.com/Akash324-dotcom" // Link to main profile if specific repo doesn't exist yet
+        title: "BRI - Banking Risk Intelligence",
+        desc: "This project is a comprehensive Banking Risk Analytics solution designed to help financial institutions understand customer behavior and minimize lending risks. By analyzing customer profiles, financial holdings, and risk scores, I developed an end-to-end pipeline: from data extraction via SQL to exploratory analysis in Python, and finally, a 3-page interactive Power BI Dashboard.",
+        link: "https://github.com/Akash324-dotcom/BRI_Banking_Risk_Intelligence" // Link to main profile if specific repo doesn't exist yet
     }
 ];
 
