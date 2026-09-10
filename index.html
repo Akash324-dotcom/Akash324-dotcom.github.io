@@ -4,167 +4,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash - Developer Portfolio</title>
+    <title>Akash Maity — ML Engineer & Researcher</title>
+    <meta name="description" content="Portfolio of Akash Maity — Machine Learning Engineer, AI Researcher, and Computer Science graduate from Dalhousie University.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <div class="left">Akash's Portfolio</div>
-            <div class="right">
+            <a href="#home" class="left">Akash Maity</a>
+            <button class="navToggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="right" id="navLinks">
                 <ul>
-                    <li><a href="#firstSection">Home</a></li>
-                    <li><a href="#thirdSection">About</a></li>
-                    <li><a href="#secondSection">Projects</a></li>
-                    <li><a href="#skills">Tech Stack</a></li>
-                    <li><a href="#resume">Resume/CV</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact" class="navCta">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="firstSection" id="firstSection">
-            <div class="leftSection">Hi! My name is <span class="lightblue">Akash Maity</span>
-                <div>and I am a passionate about
-                    <span class="typed-container">
-                        <span id="element"></span>
-                    </span>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="heroText">
+                <p class="eyebrow">Machine Learning Engineer &middot; AI Researcher</p>
+                <h1>Hi, I'm <span class="accent">Akash Maity</span></h1>
+                <p class="heroSub">I build&nbsp;
+                    <span class="typed-container"><span id="element"></span></span>
+                </p>
+                <p class="heroDesc">
+                    Computer Science graduate from Dalhousie University focused on machine learning, generative AI
+                    agents, and applied research. Currently building an AIS vessel-trajectory prediction pipeline
+                    with the Ocean Tracking Network, and leading applied ML projects at the Dalhousie Machine
+                    Learning Society.
+                </p>
+                <div class="heroActions">
+                    <a href="#projects" class="btn btnPrimary">View Projects</a>
+                    <a href="Resume_Imp.pdf" target="_blank" class="btn btnGhost">Download Resume</a>
+                </div>
+                <div class="heroMeta">
+                    <span>📍 Halifax, NS</span>
+                    <span>🎯 Available Jan 2027</span>
                 </div>
             </div>
-            <div class="rightSection"><img src="develop.png.webp" alt=""></div>
+            <div class="heroImage">
+                <img src="develop.png.webp" alt="Illustration of a developer working">
+            </div>
         </section>
-        <hr>
-        <section class="thirdSection" id="thirdSection">
-            <img src="Me.png">
-            <div class="AboutMe">
-                <h1 id="AboutMe">About Me</h1>
-                <span id="Me">
-                    <p>
-                        I am a third-year <strong>Bachelor of Computer Science student</strong> at Dalhousie University
-                        with a
-                        strong passion for building impactful applications that combine innovation with real-world
-                        usability.
-                        My technical skill set includes <strong>Java, Python, Android Studio, web development</strong>,
-                        and workflow automation using <strong>n8n</strong>.
-                    </p><br>
 
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <p class="sectionEyebrow">Get to know me</p>
+            <h2 class="sectionTitle">About Me</h2>
+            <div class="aboutGrid">
+                <div class="aboutImage">
+                    <img src="Me.png" alt="Photo of Akash Maity">
+                </div>
+                <div class="aboutText">
                     <p>
-                        I enjoy working on projects that solve practical problems and enhance user experiences.
-                        Some of my key projects include:
-                    </p><br>
-
-                    <ul>
-                        <li><strong>PetMed</strong> – a medical web platform featuring virtual cats to help regulate
-                            drug dosages.</li>
-                        <li><strong>Chat Application</strong> – a Python-based client-server chat system enabling
-                            real-time communication.</li>
-                        <li><strong>QuickCash</strong> – an Android app for posting short-term job ads, integrated with
-                            Google Maps and PayPal.</li>
-                        <li><strong>SPA</strong> – an AI-powered student assistant agent designed to handle tasks such
-                            as emails, scheduling, health guidance, and budget tracking.</li>
-                    </ul><br>
-
-                    <p>
-                        I thrive in collaborative environments and have experience delivering both team-based and
-                        client-focused projects,
-                        including successfully completing a client project with an <strong>A+ grade</strong>.
-                        My career goal is to contribute to the development of intelligent, user-centric applications
-                        that merge technology
-                        with everyday needs.
+                        I'm a Computer Science graduate of Dalhousie University (2023&ndash;2026) with a focus on
+                        <strong>machine learning, deep learning, and generative AI</strong>. My work spans
+                        reinforcement learning, sequence models, retrieval-augmented generation, and building
+                        autonomous AI agents &mdash; from research pipelines to production-facing tools.
                     </p>
-                </span>
+                    <p>
+                        I'm currently a research collaborator with the <strong>Ocean Tracking Network</strong> at
+                        Dalhousie, building a full AIS data pipeline for vessel trajectory prediction under the
+                        supervision of Prof. Gabriel Spadon. Alongside research, I lead applied ML delivery as
+                        <strong>Technical Project Lead</strong> for the Dalhousie Machine Learning Society, where I
+                        scope and ship projects for external clients and research partners.
+                    </p>
+                    <p>
+                        I'm looking for full-time <strong>Machine Learning Engineering</strong> or
+                        <strong>Data Science / ML</strong> roles with a <strong>January 2027</strong> start date.
+                    </p>
+                    <div class="aboutFacts">
+                        <div class="fact">
+                            <span class="factNum">2026</span>
+                            <span class="factLabel">B.CS, Dalhousie University</span>
+                        </div>
+                        <div class="fact">
+                            <span class="factNum">5+</span>
+                            <span class="factLabel">ML/AI research &amp; applied projects</span>
+                        </div>
+                        <div class="fact">
+                            <span class="factNum">2</span>
+                            <span class="factLabel">Hackathon builds shipped</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <hr>
-        <section class="secondSection" id="secondSection">
-            <span class="text-gray">What I have done so far...</span>
-            <h1>Projects</h1>
 
-            <div class="box">
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
-                <div class="vertical"></div>
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <p class="sectionEyebrow">Where I've worked</p>
+            <h2 class="sectionTitle">Experience</h2>
+            <div class="timelineModern">
+                <div class="timelineItem">
+                    <div class="timelineDot"></div>
+                    <div class="timelineCard">
+                        <div class="timelineHead">
+                            <h3>Mobile Application Developer</h3>
+                            <span class="timelineDate">Jan 2026 – May 2026</span>
+                        </div>
+                        <p class="timelineOrg">Collect (Startup Project) · Halifax, NS</p>
+                        <ul>
+                            <li>Led a team building a React Native (Expo) platform for local creators, owning
+                                technical decisions across Firebase authentication, Cloudflare R2 media storage, and
+                                third-party API integrations.</li>
+                            <li>Shipped a full-featured application including a video-based project feed, real-time
+                                event hub, and persistent light/dark UI.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timelineItem">
+                    <div class="timelineDot"></div>
+                    <div class="timelineCard">
+                        <div class="timelineHead">
+                            <h3>Teaching Assistant</h3>
+                            <span class="timelineDate">Jan 2024 – Apr 2024</span>
+                        </div>
+                        <p class="timelineOrg">Dalhousie University · Halifax, NS</p>
+                        <ul>
+                            <li>Supported first- and second-year students in a required Computer Science course,
+                                mentoring on programming fundamentals and problem solving.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="projects">
-                <div class="project_names" id="project1" title="Click Me">PetMed</div>
-                <div class="project_names" id="project2" title="Click Me">Chat Application in Server</div>
-                <div class="project_names" id="project3" title="Click Me">QuickCash</div>
-                <div class="project_names" id="project4" title="Click Me">SPA (Student Personal Assistant)</div>
-                <div class="project_names" id="project5" title="Click Me">Gemini Chrome extension</div>
-            </div>
-            <div class="projectDescription" id="projectDescription">
-                <div class="projectdes" id="projectdes1"><span id="projecttyped1"></span></div>
-                <div class="projectdes" id="projectdes2"><span id="projecttyped2"></span></div>
-                <div class="projectdes" id="projectdes3"><span id="projecttyped3"></span></div>
-                <div class="projectdes" id="projectdes4"><span id="projecttyped4"></span></div>
-                <div class="projectdes" id="projectdes5"><span id="projecttyped5"></span></div>
-            </div>
-        </section>
-        <hr>
-        <section class="skills" id="skills">
-            <h1 id="skillset">Tech Stack</h1>
-            <div class="timeline">
-                <div class="container left">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with Python 🐍 – built small automation scripts.</p>
+
+            <p class="sectionEyebrow" style="margin-top: 4rem;">Leadership &amp; Extracurricular</p>
+            <div class="timelineModern">
+                <div class="timelineItem">
+                    <div class="timelineDot"></div>
+                    <div class="timelineCard">
+                        <div class="timelineHead">
+                            <h3>Technical Project Lead</h3>
+                            <span class="timelineDate">May 2026 – Present</span>
+                        </div>
+                        <p class="timelineOrg">Dalhousie Machine Learning Society · Halifax, NS</p>
+                        <ul>
+                            <li>Lead end-to-end delivery of applied ML projects for external clients and research
+                                partners, defining technical scope and coordinating cross-functional student teams
+                                from data acquisition through deployment.</li>
+                            <li>Designed and delivered a hands-on workshop, "Build Your First AI Agent," using the
+                                smolagents framework, and organized the DMLS Summer Hackathon 2026 across five
+                                Atlantic Canada industry problem statements.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with Java as my coding platform.</p>
+                <div class="timelineItem">
+                    <div class="timelineDot"></div>
+                    <div class="timelineCard">
+                        <div class="timelineHead">
+                            <h3>Student Representative</h3>
+                            <span class="timelineDate">Nov 2025 – Present</span>
+                        </div>
+                        <p class="timelineOrg">Dalhousie Machine Learning Society · Halifax, NS</p>
+                        <ul>
+                            <li>Serve as liaison between the student community and executive leadership; co-organize
+                                workshops, hackathons, and mentorship programs.</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="container left">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Started with a basic game of "Hand-Cricket", I made using python.</p>
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Dived into Android Development 📱 – built QuickCash app with Google Maps & PayPal.</p>
-                    </div>
-                </div>
-                <div class="container left">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Explored Web Development 🌐 – worked on PetMed medical website.</p>
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h3>2025</h3>
-                        <p>AI & Chatbots 🤖 – created SPA - student assistant (emails, scheduling, budgeting).
-                            Automation with n8n ⚙️ – built workflows & collaborated with ShiftKey Labs.</p>
-                    </div>
-                </div>
-        </section>
-        <hr>
-        <section class="resume" id="resume">
-            <h1 class="resumecv">Resume/CV</h1>
-            <div class="resCV">
-                <div class="resumeSection">
-                    <a href="Resume_Imp.pdf"><img src="Resume.png" alt="" caption="Click for Resume"></a>
-                    <span id="restext">Click to View Resume</span>
-                </div>
-                <div class="CVSection">
-                    <a href="CV_Imp.pdf"><img src="CV.png" alt="" caption="Click for CV"></a>
-                    <span id="restext">Click to View CV</span>
                 </div>
             </div>
         </section>
-        <hr>
-        <section id="contact">
-            <h2>Let’s Connect!</h2>
-            <p>Whether you have an exciting project, a crazy idea, or just want to say hi — I’d love to hear from
-                you!</p>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+            <p class="sectionEyebrow">What I've built</p>
+            <h2 class="sectionTitle">Projects</h2>
+            <div class="projectGrid">
+                <article class="projectCard" data-project="1">
+                    <div class="projectCardHead">
+                        <h3>ER Wait-Time Prediction Model</h3>
+                        <span class="projectTag">Nova Scotia Hospitals</span>
+                    </div>
+                    <p class="projectSummary">Built and deployed a machine learning model to predict emergency-room
+                        wait times, achieving an <strong>18.5% reduction</strong> in wait times across Nova Scotia
+                        hospitals.</p>
+                    <div class="chipRow">
+                        <span class="chip">Python</span><span class="chip">ML</span><span class="chip">Healthcare</span>
+                    </div>
+                </article>
+                <article class="projectCard" data-project="2">
+                    <div class="projectCardHead">
+                        <h3>RAG Hallucination Detection</h3>
+                        <span class="projectTag">50 arXiv RL Papers</span>
+                    </div>
+                    <p class="projectSummary">Built a retrieval-augmented generation and faithfulness-evaluation
+                        system using FAISS vector search, Hugging Face sentence-transformers, and TinyLlama for
+                        generation, with an NLI-based detector that flagged unsupported claims and query expansion
+                        that measurably improved retrieval recall.</p>
+                    <div class="chipRow">
+                        <span class="chip">RAG</span><span class="chip">FAISS</span><span class="chip">Hugging Face</span>
+                    </div>
+                </article>
+                <article class="projectCard" data-project="3">
+                    <div class="projectCardHead">
+                        <h3>Multi-Agent Delivery Routing</h3>
+                        <span class="projectTag">VRPTW</span>
+                    </div>
+                    <p class="projectSummary">Designed a multi-agent system with LLM-based intent extraction to
+                        convert natural-language delivery requests into structured routing constraints, reaching
+                        <strong>100% constraint satisfaction</strong> after iterative prompt optimization, validated
+                        against 100 bootstrapped synthetic instances.</p>
+                    <div class="chipRow">
+                        <span class="chip">LLM Agents</span><span class="chip">Optimization</span><span class="chip">Prompt Engineering</span>
+                    </div>
+                </article>
+                <article class="projectCard" data-project="4">
+                    <div class="projectCardHead">
+                        <h3>Explainable ML Audit</h3>
+                        <span class="projectTag">LendingClub Loan Default</span>
+                    </div>
+                    <p class="projectSummary">Audited a LightGBM loan-default model using SHAP, LIME, and partial
+                        dependence plots, delivering case narratives and a business-facing slide deck that gave
+                        non-technical stakeholders a clear, actionable view of model risk.</p>
+                    <div class="chipRow">
+                        <span class="chip">SHAP</span><span class="chip">LIME</span><span class="chip">Explainable AI</span>
+                    </div>
+                </article>
+                <article class="projectCard" data-project="5">
+                    <div class="projectCardHead">
+                        <h3>Student Personal Assistant</h3>
+                        <span class="projectTag">n8n AI Agent</span>
+                    </div>
+                    <p class="projectSummary">Built a personal AI agent workflow in n8n that drafts, creates, and
+                        sends Gmail messages, tracks a budget, manages Google Calendar events, and answers general
+                        and health-related queries end-to-end.</p>
+                    <div class="chipRow">
+                        <span class="chip">n8n</span><span class="chip">Automation</span><span class="chip">LLM</span>
+                    </div>
+                </article>
+                <article class="projectCard" data-project="6">
+                    <div class="projectCardHead">
+                        <h3>Hackathon Builds</h3>
+                        <span class="projectTag">PSI &amp; Watt the Hack</span>
+                    </div>
+                    <p class="projectSummary"><strong>PSI</strong> — a marine digital twin platform for offshore wind
+                        siting, built at the ShiftKey Labs Hackathon. <strong>Watt the Hack</strong> — a
+                        sustainability and green-efficiency web app built with React, TypeScript, and Supabase.</p>
+                    <div class="chipRow">
+                        <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Supabase</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section class="section" id="research">
+            <p class="sectionEyebrow">Current focus</p>
+            <h2 class="sectionTitle">Research</h2>
+            <div class="researchCard">
+                <div class="researchHead">
+                    <h3>Vessel Trajectory Prediction Pipeline</h3>
+                    <span class="timelineDate">2026 – Present</span>
+                </div>
+                <p class="timelineOrg">Ocean Tracking Network (OTN), Dalhousie University · with Prof. Gabriel
+                    Spadon · Halifax, NS</p>
+                <ul>
+                    <li>Build and maintain a full AIS data pipeline for vessel trajectory prediction: parser,
+                        sliding-window trajectory batching, spatial filtering, an API ingestor, an
+                        evaluation-metrics module, a visual debugger, and a synthetic data generator.</li>
+                    <li>Implement sequential motion-prediction stages &mdash; a Kalman filter baseline followed by a
+                        configurable GRU model with a time-decay gate for irregular AIS ping intervals &mdash;
+                        informed by a literature review of trajectory-forecasting architectures.</li>
+                    <li>Collaborate with faculty supervisor Prof. Gabriel Spadon via Git-based version control and
+                        code review.</li>
+                </ul>
+                <div class="chipRow">
+                    <span class="chip">AIS Data</span><span class="chip">Kalman Filter</span><span class="chip">GRU</span><span class="chip">Time-Series</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <p class="sectionEyebrow">Toolbox</p>
+            <h2 class="sectionTitle">Technical Skills</h2>
+            <div class="skillsGrid">
+                <div class="skillGroup">
+                    <h3>Languages &amp; Frameworks</h3>
+                    <div class="chipRow">
+                        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span>
+                    </div>
+                </div>
+                <div class="skillGroup">
+                    <h3>Machine Learning &amp; Deep Learning</h3>
+                    <div class="chipRow">
+                        <span class="chip">Supervised / Unsupervised Learning</span>
+                        <span class="chip">Reinforcement Learning</span>
+                        <span class="chip">Q-Learning / SARSA / DQN / CQL / PPO</span>
+                        <span class="chip">Actor-Critic</span>
+                        <span class="chip">Transfer Learning</span>
+                        <span class="chip">RNN / GRU / LSTM</span>
+                        <span class="chip">Kalman Filtering</span>
+                        <span class="chip">Recommender Systems</span>
+                        <span class="chip">ANN Semantic Search</span>
+                    </div>
+                </div>
+                <div class="skillGroup">
+                    <h3>Generative AI &amp; Agents</h3>
+                    <div class="chipRow">
+                        <span class="chip">Autonomous AI Agents</span>
+                        <span class="chip">LLM Fine-Tuning</span>
+                        <span class="chip">RAG (LangChain, FAISS)</span>
+                        <span class="chip">Hugging Face Transformers</span>
+                        <span class="chip">NLI Hallucination Detection</span>
+                        <span class="chip">Prompt Engineering</span>
+                        <span class="chip">SHAP / LIME</span>
+                        <span class="chip">Partial Dependence Plots</span>
+                    </div>
+                </div>
+                <div class="skillGroup">
+                    <h3>Data Engineering &amp; Cloud</h3>
+                    <div class="chipRow">
+                        <span class="chip">ETL Design</span>
+                        <span class="chip">Pipeline Orchestration</span>
+                        <span class="chip">Feature Engineering</span>
+                        <span class="chip">Synthetic Data Generation</span>
+                        <span class="chip">AWS</span>
+                        <span class="chip">Google Cloud Platform</span>
+                        <span class="chip">Firebase</span>
+                        <span class="chip">Cloudflare R2</span>
+                        <span class="chip">Power BI</span>
+                        <span class="chip">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME -->
+        <section class="section" id="resume">
+            <p class="sectionEyebrow">Take a copy</p>
+            <h2 class="sectionTitle">Resume &amp; CV</h2>
+            <div class="resumeGrid">
+                <a class="resumeCard" href="Resume_Imp.pdf" target="_blank" rel="noopener">
+                    <span class="resumeIcon">📄</span>
+                    <span class="resumeCardTitle">Resume</span>
+                    <span class="resumeCardSub">1-page overview · PDF</span>
+                </a>
+                <a class="resumeCard" href="CV_Imp.pdf" target="_blank" rel="noopener">
+                    <span class="resumeIcon">📋</span>
+                    <span class="resumeCardTitle">Full CV</span>
+                    <span class="resumeCardSub">Detailed history · PDF</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section sectionContact" id="contact">
+            <p class="sectionEyebrow">Get in touch</p>
+            <h2 class="sectionTitle">Let's Connect</h2>
+            <p class="contactIntro">Have a project, a role, or an idea to talk through? I'd love to hear from you.</p>
 
             <form id="contactForm">
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -174,25 +379,24 @@
                 <p id="formMessage"></p>
             </form>
 
-
             <div class="social-links">
-                <a href="mailto:akashmaitycad@gmail.com" target="_blank">
+                <a href="mailto:akashmaitycad@gmail.com" target="_blank" title="Email">
                     <img src="email.png" alt="Email" class="social-icon">
                 </a>
-                <a href="https://github.com/Akash324-dotcom" target="_blank">
+                <a href="https://github.com/Akash324-dotcom" target="_blank" title="GitHub">
                     <img src="github.png" alt="GitHub" class="social-icon">
                 </a>
-                <a href="https://www.linkedin.com/in/akash-maity-8888a22b3" target="_blank">
-                    <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+                <a href="https://www.linkedin.com/in/akash-maity-8888a22b3" target="_blank" title="LinkedIn">
+                    <img src="linkedIn.png" alt="LinkedIn" class="social-icon">
                 </a>
             </div>
-
         </section>
     </main>
-    <hr>
-    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #555;">
-        © 2025 Akash Maity. All rights reserved. | <a href="mailto:akashmaitycad@gmail.com">Contact</a>
+
+    <footer>
+        <p>© 2026 Akash Maity. All rights reserved. · <a href="mailto:akashmaitycad@gmail.com">Contact</a></p>
     </footer>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="script.js"></script>
