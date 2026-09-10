@@ -59,16 +59,3 @@ form.addEventListener('submit', function (e) {
         formMessage.textContent = 'Please fill in all fields.';
     }
 });
-
-// Fade-in on scroll
-const revealTargets = document.querySelectorAll('.section, .hero');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('inView');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-revealTargets.forEach(el => observer.observe(el));
