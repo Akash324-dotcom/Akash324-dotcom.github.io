@@ -8,27 +8,37 @@
     <meta name="description" content="Portfolio of Akash Maity — Machine Learning Engineer, AI Researcher, and Computer Science graduate from Dalhousie University.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- Living background: constellation / trajectory particle field -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="grainOverlay" aria-hidden="true"></div>
+
+    <!-- Custom cursor (disabled automatically on touch devices) -->
+    <div class="cursorDot" aria-hidden="true"></div>
+    <div class="cursorRing" aria-hidden="true"></div>
+
+    <!-- Scroll progress indicator -->
+    <div class="scrollProgress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+
     <header>
         <nav>
-            <a href="#home" class="left">Akash Maity</a>
+            <a href="#home" class="left">Akash<span class="dotAccent">.</span>Maity</a>
             <button class="navToggle" id="navToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
             <div class="right" id="navLinks">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#contact" class="navCta">Contact</a></li>
+                    <li><a href="#home" data-nav="home">Home</a></li>
+                    <li><a href="#about" data-nav="about">About</a></li>
+                    <li><a href="#experience" data-nav="experience">Experience</a></li>
+                    <li><a href="#projects" data-nav="projects">Projects</a></li>
+                    <li><a href="#research" data-nav="research">Research</a></li>
+                    <li><a href="#skills" data-nav="skills">Skills</a></li>
+                    <li><a href="#contact" class="navCta" data-nav="contact">Let's Talk</a></li>
                 </ul>
             </div>
         </nav>
@@ -38,40 +48,50 @@
         <!-- HERO -->
         <section class="hero" id="home">
             <div class="heroText">
-                <p class="eyebrow">Machine Learning Engineer &middot; AI Researcher</p>
-                <h1>Hi, I'm <span class="accent">Akash Maity</span></h1>
-                <p class="heroSub">I build&nbsp;
+                <p class="eyebrow reveal">
+                    <span class="pulseDot" aria-hidden="true"></span>
+                    Machine Learning Engineer &middot; AI Researcher
+                </p>
+                <h1 class="reveal">Hi, I'm <span class="accent">Akash Maity</span></h1>
+                <p class="heroSub reveal">I build&nbsp;
                     <span class="typed-container"><span id="element"></span></span>
                 </p>
-                <p class="heroDesc">
+                <p class="heroDesc reveal">
                     Computer Science graduate from Dalhousie University focused on machine learning, generative AI
                     agents, and applied research. Currently building an AIS vessel-trajectory prediction pipeline
                     with the Ocean Tracking Network, and leading applied ML projects at the Dalhousie Machine
                     Learning Society.
                 </p>
-                <div class="heroActions">
-                    <a href="#projects" class="btn btnPrimary">View Projects</a>
-                    <a href="Resume_Imp.pdf" target="_blank" class="btn btnGhost">Download Resume</a>
+                <div class="heroActions reveal">
+                    <a href="#projects" class="btn btnPrimary magnetic"><span>View Projects</span></a>
+                    <a href="Resume_Imp.pdf" target="_blank" class="btn btnGhost magnetic"><span>Download Resume ↓</span></a>
                 </div>
-                <div class="heroMeta">
+                <div class="heroMeta reveal">
                     <span>📍 Halifax, NS</span>
-                    <span>🎯 Available Jan 2027</span>
+                    <span class="availabilityPill"><span class="pulseDot small" aria-hidden="true"></span>Available Jan 2027</span>
                 </div>
             </div>
-            <div class="heroImage">
+            <div class="heroImage reveal">
+                <div class="heroImageGlow" aria-hidden="true"></div>
                 <img src="develop.png.webp" alt="Illustration of a developer working">
+                <span class="floatBadge badge1">🐍 Python</span>
+                <span class="floatBadge badge2">🧠 ML</span>
+                <span class="floatBadge badge3">🌊 AIS Data</span>
             </div>
+            <a href="#about" class="scrollCue" aria-label="Scroll to About section">
+                <span></span>
+            </a>
         </section>
 
         <!-- ABOUT -->
         <section class="section" id="about">
-            <p class="sectionEyebrow">Get to know me</p>
-            <h2 class="sectionTitle">About Me</h2>
+            <p class="sectionEyebrow reveal">Get to know me</p>
+            <h2 class="sectionTitle reveal">About Me</h2>
             <div class="aboutGrid">
-                <div class="aboutImage">
+                <div class="aboutImage reveal">
                     <img src="Me.png" alt="Photo of Akash Maity">
                 </div>
-                <div class="aboutText">
+                <div class="aboutText reveal">
                     <p>
                         I'm a Computer Science graduate of Dalhousie University (2023&ndash;2026) with a focus on
                         <strong>machine learning, deep learning, and generative AI</strong>. My work spans
@@ -91,15 +111,15 @@
                     </p>
                     <div class="aboutFacts">
                         <div class="fact">
-                            <span class="factNum">2026</span>
+                            <span class="factNum" data-count="2026" data-start="2016">2026</span>
                             <span class="factLabel">B.CS, Dalhousie University</span>
                         </div>
                         <div class="fact">
-                            <span class="factNum">5+</span>
+                            <span class="factNum" data-count="5" data-suffix="+">5+</span>
                             <span class="factLabel">ML/AI research &amp; applied projects</span>
                         </div>
                         <div class="fact">
-                            <span class="factNum">2</span>
+                            <span class="factNum" data-count="2">2</span>
                             <span class="factLabel">Hackathon builds shipped</span>
                         </div>
                     </div>
@@ -109,10 +129,10 @@
 
         <!-- EXPERIENCE -->
         <section class="section" id="experience">
-            <p class="sectionEyebrow">Where I've worked</p>
-            <h2 class="sectionTitle">Experience</h2>
+            <p class="sectionEyebrow reveal">Where I've worked</p>
+            <h2 class="sectionTitle reveal">Experience</h2>
             <div class="timelineModern">
-                <div class="timelineItem">
+                <div class="timelineItem reveal">
                     <div class="timelineDot"></div>
                     <div class="timelineCard">
                         <div class="timelineHead">
@@ -129,7 +149,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timelineItem">
+                <div class="timelineItem reveal">
                     <div class="timelineDot"></div>
                     <div class="timelineCard">
                         <div class="timelineHead">
@@ -145,9 +165,9 @@
                 </div>
             </div>
 
-            <p class="sectionEyebrow" style="margin-top: 4rem;">Leadership &amp; Extracurricular</p>
+            <p class="sectionEyebrow reveal" style="margin-top: 4rem;">Leadership &amp; Extracurricular</p>
             <div class="timelineModern">
-                <div class="timelineItem">
+                <div class="timelineItem reveal">
                     <div class="timelineDot"></div>
                     <div class="timelineCard">
                         <div class="timelineHead">
@@ -165,7 +185,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timelineItem">
+                <div class="timelineItem reveal">
                     <div class="timelineDot"></div>
                     <div class="timelineCard">
                         <div class="timelineHead">
@@ -184,22 +204,22 @@
 
         <!-- PROJECTS -->
         <section class="section" id="projects">
-            <p class="sectionEyebrow">What I've built</p>
-            <h2 class="sectionTitle">Projects</h2>
+            <p class="sectionEyebrow reveal">What I've built</p>
+            <h2 class="sectionTitle reveal">Projects</h2>
             <div class="projectGrid">
-                <article class="projectCard" data-project="1">
+                <article class="projectCard featured tilt reveal" data-project="1">
                     <div class="projectCardHead">
                         <h3>ER Wait-Time Prediction Model</h3>
                         <span class="projectTag">Nova Scotia Hospitals</span>
                     </div>
                     <p class="projectSummary">Built and deployed a machine learning model to predict emergency-room
-                        wait times, achieving an <strong>18.5% reduction</strong> in wait times across Nova Scotia
-                        hospitals.</p>
+                        wait times, achieving an <strong class="highlightStat">18.5% reduction</strong> in wait times
+                        across Nova Scotia hospitals.</p>
                     <div class="chipRow">
                         <span class="chip">Python</span><span class="chip">ML</span><span class="chip">Healthcare</span>
                     </div>
                 </article>
-                <article class="projectCard" data-project="2">
+                <article class="projectCard featured tilt reveal" data-project="2">
                     <div class="projectCardHead">
                         <h3>RAG Hallucination Detection</h3>
                         <span class="projectTag">50 arXiv RL Papers</span>
@@ -212,20 +232,20 @@
                         <span class="chip">RAG</span><span class="chip">FAISS</span><span class="chip">Hugging Face</span>
                     </div>
                 </article>
-                <article class="projectCard" data-project="3">
+                <article class="projectCard tilt reveal" data-project="3">
                     <div class="projectCardHead">
                         <h3>Multi-Agent Delivery Routing</h3>
                         <span class="projectTag">VRPTW</span>
                     </div>
                     <p class="projectSummary">Designed a multi-agent system with LLM-based intent extraction to
                         convert natural-language delivery requests into structured routing constraints, reaching
-                        <strong>100% constraint satisfaction</strong> after iterative prompt optimization, validated
-                        against 100 bootstrapped synthetic instances.</p>
+                        <strong class="highlightStat">100% constraint satisfaction</strong> after iterative prompt
+                        optimization, validated against 100 bootstrapped synthetic instances.</p>
                     <div class="chipRow">
                         <span class="chip">LLM Agents</span><span class="chip">Optimization</span><span class="chip">Prompt Engineering</span>
                     </div>
                 </article>
-                <article class="projectCard" data-project="4">
+                <article class="projectCard tilt reveal" data-project="4">
                     <div class="projectCardHead">
                         <h3>Explainable ML Audit</h3>
                         <span class="projectTag">LendingClub Loan Default</span>
@@ -237,7 +257,7 @@
                         <span class="chip">SHAP</span><span class="chip">LIME</span><span class="chip">Explainable AI</span>
                     </div>
                 </article>
-                <article class="projectCard" data-project="5">
+                <article class="projectCard tilt reveal" data-project="5">
                     <div class="projectCardHead">
                         <h3>Student Personal Assistant</h3>
                         <span class="projectTag">n8n AI Agent</span>
@@ -249,7 +269,7 @@
                         <span class="chip">n8n</span><span class="chip">Automation</span><span class="chip">LLM</span>
                     </div>
                 </article>
-                <article class="projectCard" data-project="6">
+                <article class="projectCard tilt reveal" data-project="6">
                     <div class="projectCardHead">
                         <h3>Hackathon Builds</h3>
                         <span class="projectTag">PSI &amp; Watt the Hack</span>
@@ -266,44 +286,53 @@
 
         <!-- RESEARCH -->
         <section class="section" id="research">
-            <p class="sectionEyebrow">Current focus</p>
-            <h2 class="sectionTitle">Research</h2>
-            <div class="researchCard">
-                <div class="researchHead">
-                    <h3>Vessel Trajectory Prediction Pipeline</h3>
-                    <span class="timelineDate">2026 – Present</span>
-                </div>
-                <p class="timelineOrg">Ocean Tracking Network (OTN), Dalhousie University · with Prof. Gabriel
-                    Spadon · Halifax, NS</p>
-                <ul>
-                    <li>Build and maintain a full AIS data pipeline for vessel trajectory prediction: parser,
-                        sliding-window trajectory batching, spatial filtering, an API ingestor, an
-                        evaluation-metrics module, a visual debugger, and a synthetic data generator.</li>
-                    <li>Implement sequential motion-prediction stages &mdash; a Kalman filter baseline followed by a
-                        configurable GRU model with a time-decay gate for irregular AIS ping intervals &mdash;
-                        informed by a literature review of trajectory-forecasting architectures.</li>
-                    <li>Collaborate with faculty supervisor Prof. Gabriel Spadon via Git-based version control and
-                        code review.</li>
-                </ul>
-                <div class="chipRow">
-                    <span class="chip">AIS Data</span><span class="chip">Kalman Filter</span><span class="chip">GRU</span><span class="chip">Time-Series</span>
+            <p class="sectionEyebrow reveal">Current focus</p>
+            <h2 class="sectionTitle reveal">Research</h2>
+            <div class="researchCard reveal">
+                <div class="researchGrid">
+                    <div class="researchText">
+                        <div class="researchHead">
+                            <h3>Vessel Trajectory Prediction Pipeline</h3>
+                            <span class="timelineDate">2026 – Present</span>
+                        </div>
+                        <p class="timelineOrg">Ocean Tracking Network (OTN), Dalhousie University · with Prof. Gabriel
+                            Spadon · Halifax, NS</p>
+                        <ul>
+                            <li>Build and maintain a full AIS data pipeline for vessel trajectory prediction: parser,
+                                sliding-window trajectory batching, spatial filtering, an API ingestor, an
+                                evaluation-metrics module, a visual debugger, and a synthetic data generator.</li>
+                            <li>Implement sequential motion-prediction stages &mdash; a Kalman filter baseline followed
+                                by a configurable GRU model with a time-decay gate for irregular AIS ping intervals
+                                &mdash; informed by a literature review of trajectory-forecasting architectures.</li>
+                            <li>Collaborate with faculty supervisor Prof. Gabriel Spadon via Git-based version control
+                                and code review.</li>
+                        </ul>
+                        <div class="chipRow">
+                            <span class="chip">AIS Data</span><span class="chip">Kalman Filter</span><span class="chip">GRU</span><span class="chip">Time-Series</span>
+                        </div>
+                    </div>
+                    <div class="researchVisual">
+                        <canvas id="trajectoryCanvas" aria-hidden="true"></canvas>
+                        <p class="visualCaption">Illustrative animation — a simplified sketch of predicted vs. actual
+                            vessel motion, not live model output.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SKILLS -->
         <section class="section" id="skills">
-            <p class="sectionEyebrow">Toolbox</p>
-            <h2 class="sectionTitle">Technical Skills</h2>
+            <p class="sectionEyebrow reveal">Toolbox</p>
+            <h2 class="sectionTitle reveal">Technical Skills</h2>
             <div class="skillsGrid">
-                <div class="skillGroup">
-                    <h3>Languages &amp; Frameworks</h3>
+                <div class="skillGroup reveal">
+                    <h3><span class="skillIcon">⌘</span>Languages &amp; Frameworks</h3>
                     <div class="chipRow">
                         <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span>
                     </div>
                 </div>
-                <div class="skillGroup">
-                    <h3>Machine Learning &amp; Deep Learning</h3>
+                <div class="skillGroup reveal">
+                    <h3><span class="skillIcon">◎</span>Machine Learning &amp; Deep Learning</h3>
                     <div class="chipRow">
                         <span class="chip">Supervised / Unsupervised Learning</span>
                         <span class="chip">Reinforcement Learning</span>
@@ -316,8 +345,8 @@
                         <span class="chip">ANN Semantic Search</span>
                     </div>
                 </div>
-                <div class="skillGroup">
-                    <h3>Generative AI &amp; Agents</h3>
+                <div class="skillGroup reveal">
+                    <h3><span class="skillIcon">✦</span>Generative AI &amp; Agents</h3>
                     <div class="chipRow">
                         <span class="chip">Autonomous AI Agents</span>
                         <span class="chip">LLM Fine-Tuning</span>
@@ -329,8 +358,8 @@
                         <span class="chip">Partial Dependence Plots</span>
                     </div>
                 </div>
-                <div class="skillGroup">
-                    <h3>Data Engineering &amp; Cloud</h3>
+                <div class="skillGroup reveal">
+                    <h3><span class="skillIcon">▤</span>Data Engineering &amp; Cloud</h3>
                     <div class="chipRow">
                         <span class="chip">ETL Design</span>
                         <span class="chip">Pipeline Orchestration</span>
@@ -347,39 +376,31 @@
             </div>
         </section>
 
-        <!-- RESUME -->
-        <section class="section" id="resume">
-            <p class="sectionEyebrow">Take a copy</p>
-            <h2 class="sectionTitle">Resume &amp; CV</h2>
-            <div class="resumeGrid">
-                <a class="resumeCard" href="Resume_Imp.pdf" target="_blank" rel="noopener">
-                    <span class="resumeIcon">📄</span>
-                    <span class="resumeCardTitle">Resume</span>
-                    <span class="resumeCardSub">1-page overview · PDF</span>
-                </a>
-                <a class="resumeCard" href="CV_Imp.pdf" target="_blank" rel="noopener">
-                    <span class="resumeIcon">📋</span>
-                    <span class="resumeCardTitle">Full CV</span>
-                    <span class="resumeCardSub">Detailed history · PDF</span>
-                </a>
-            </div>
-        </section>
-
         <!-- CONTACT -->
         <section class="section sectionContact" id="contact">
-            <p class="sectionEyebrow">Get in touch</p>
-            <h2 class="sectionTitle">Let's Connect</h2>
-            <p class="contactIntro">Have a project, a role, or an idea to talk through? I'd love to hear from you.</p>
+            <p class="sectionEyebrow reveal">Get in touch</p>
+            <h2 class="sectionTitle reveal">Let's Connect</h2>
+            <p class="contactIntro reveal">Have a project, a role, or an idea to talk through? I'd love to hear from
+                you.</p>
 
-            <form id="contactForm">
+            <div class="resumeChips reveal">
+                <a class="resumeChip" href="Resume_Imp.pdf" target="_blank" rel="noopener">
+                    <span class="resumeIcon">📄</span> Resume <span class="chipSub">PDF</span>
+                </a>
+                <a class="resumeChip" href="CV_Imp.pdf" target="_blank" rel="noopener">
+                    <span class="resumeIcon">📋</span> Full CV <span class="chipSub">PDF</span>
+                </a>
+            </div>
+
+            <form id="contactForm" class="reveal">
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
                 <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
+                <button type="submit" class="magnetic"><span>Send Message</span></button>
                 <p id="formMessage"></p>
             </form>
 
-            <div class="social-links">
+            <div class="social-links reveal">
                 <a href="mailto:akashmaitycad@gmail.com" target="_blank" title="Email">
                     <img src="email.png" alt="Email" class="social-icon">
                 </a>
@@ -396,6 +417,8 @@
     <footer>
         <p>© 2026 Akash Maity. All rights reserved. · <a href="mailto:akashmaitycad@gmail.com">Contact</a></p>
     </footer>
+
+    <button class="backToTop" id="backToTop" aria-label="Back to top">↑</button>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
