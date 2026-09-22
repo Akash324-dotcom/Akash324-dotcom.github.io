@@ -5,46 +5,101 @@ if (window.emailjs) {
     emailjs.init("ERXE5QuyI7eXpXQJs");
 }
 
-// ============================================================
-// Hero typed text
-// ============================================================
-if (window.Typed) {
-    new Typed('#element', {
-        strings: [
-            'ML pipelines',
-            'AI agents',
-            'research prototypes',
-            'RAG systems',
-            'full-stack apps'
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 1400,
-        loop: true,
-    });
-}
-
-// ============================================================
-// Respect reduced-motion preference
-// ============================================================
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const isMobileViewport = () => window.innerWidth <= 900;
 
 // ============================================================
-// Mobile nav toggle
+// Preloader — quick counter, skipped after first visit this tab
 // ============================================================
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+(function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    const countEl = document.getElementById('preloaderCount');
+    if (!preloader) return;
 
-if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
+    const alreadySeen = sessionStorage.getItem('seenPreloader');
+
+    if (prefersReducedMotion || alreadySeen) {
+        preloader.remove();
+        return;
+    }
+
+    sessionStorage.setItem('seenPreloader', '1');
+    let count = 0;
+    const interval = setInterval(() => {
+        count += Math.ceil(Math.random() * 18);
+        if (count >= 100) {
+            count = 100;
+            clearInterval(interval);
+            if (countEl) countEl.textContent = '100';
+            setTimeout(() => {
+                preloader.classList.add('done');
+                setTimeout(() => preloader.remove(), 800);
+            }, 200);
+        } else if (countEl) {
+            countEl.textContent = String(count);
+        }
+    }, 90);
+})();
+
+// ============================================================
+// Full-screen menu overlay
+// ============================================================
+const menuToggle = document.getElementById('menuToggle');
+const menuOverlay = document.getElementById('menuOverlay');
+
+function closeMenu() {
+    if (!menuOverlay) return;
+    menuOverlay.classList.remove('open');
+    menuOverlay.setAttribute('aria-hidden', 'true');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+function openMenu() {
+    if (!menuOverlay) return;
+    menuOverlay.classList.add('open');
+    menuOverlay.setAttribute('aria-hidden', 'false');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+}
+
+if (menuToggle && menuOverlay) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = menuOverlay.classList.contains('open');
+        isOpen ? closeMenu() : openMenu();
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    menuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
     });
 }
+
+// ============================================================
+// Local time (Halifax) in menu footer
+// ============================================================
+(function initLocalTime() {
+    const el = document.getElementById('localTime');
+    if (!el) return;
+
+    function tick() {
+        try {
+            const formatted = new Intl.DateTimeFormat('en-CA', {
+                timeZone: 'America/Halifax',
+                hour: '2-digit',
+                minute: '2-digit',
+            }).format(new Date());
+            el.textContent = formatted + ' AT';
+        } catch (err) {
+            el.textContent = '';
+        }
+    }
+
+    tick();
+    setInterval(tick, 30000);
+})();
 
 // ============================================================
 // Scroll progress bar
@@ -59,9 +114,9 @@ function updateScrollProgress() {
 }
 
 // ============================================================
-// Scrollspy — highlight active nav link
+// Scrollspy — highlight active menu link
 // ============================================================
-const navAnchors = document.querySelectorAll('nav a[data-nav]');
+const navAnchors = document.querySelectorAll('.menuNav a[data-nav]');
 const sections = Array.from(navAnchors)
     .map(a => document.getElementById(a.getAttribute('data-nav')))
     .filter(Boolean);
@@ -95,15 +150,66 @@ if (backToTop) {
     });
 }
 
+// ============================================================
+// Hero parallax (subtle, based on scroll position only — cheap)
+// ============================================================
+const heroLines = document.querySelectorAll('.heroLine[data-speed]');
+
+function updateHeroParallax() {
+    if (prefersReducedMotion || heroLines.length === 0) return;
+    const scrollTop = window.scrollY;
+    if (scrollTop > window.innerHeight) return;
+    heroLines.forEach(line => {
+        const speed = parseFloat(line.getAttribute('data-speed')) || 0.2;
+        line.style.transform = `translateY(${scrollTop * speed}px)`;
+    });
+}
+
+// ============================================================
+// Horizontal scroll-jacked project gallery
+// ============================================================
+const hzSection = document.querySelector('.horizontalProjects');
+const hzTrack = document.getElementById('hzTrack');
+const hzProgressBar = document.getElementById('hzProgressBar');
+
+function updateHorizontalScroll() {
+    if (!hzSection || !hzTrack || isMobileViewport()) return;
+
+    const rect = hzSection.getBoundingClientRect();
+    const sectionHeight = hzSection.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    const scrollable = sectionHeight - viewportHeight;
+    if (scrollable <= 0) return;
+
+    const scrolledIntoSection = -rect.top;
+    const progress = Math.min(Math.max(scrolledIntoSection / scrollable, 0), 1);
+
+    const trackWidth = hzTrack.scrollWidth;
+    const maxTranslate = Math.max(trackWidth - window.innerWidth, 0);
+
+    hzTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
+    if (hzProgressBar) hzProgressBar.style.width = (progress * 100) + '%';
+}
+
+// ============================================================
+// Master scroll handler
+// ============================================================
 window.addEventListener('scroll', () => {
     updateScrollProgress();
     updateScrollspy();
     updateBackToTop();
+    updateHeroParallax();
+    updateHorizontalScroll();
+}, { passive: true });
+
+window.addEventListener('resize', () => {
+    updateHorizontalScroll();
 }, { passive: true });
 
 updateScrollProgress();
 updateScrollspy();
 updateBackToTop();
+updateHorizontalScroll();
 
 // ============================================================
 // Reveal-on-scroll (IntersectionObserver)
@@ -167,10 +273,11 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================================
-// Custom cursor
+// Custom cursor (with "VIEW" label over project cards)
 // ============================================================
 const cursorDot = document.querySelector('.cursorDot');
-const cursorRing = document.querySelector('.cursorRing');
+const cursorRing = document.getElementById('cursorRing');
+const cursorLabel = document.getElementById('cursorLabel');
 
 if (isFinePointer && cursorDot && cursorRing) {
     let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
@@ -189,9 +296,19 @@ if (isFinePointer && cursorDot && cursorRing) {
     }
     animateRing();
 
-    document.querySelectorAll('a, button, .projectCard, .chip, .tilt').forEach(el => {
+    document.querySelectorAll('a, button, .chip').forEach(el => {
         el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
         el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+    });
+
+    document.querySelectorAll('.projCard').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (cursorLabel) cursorLabel.textContent = 'VIEW';
+            cursorRing.classList.add('labeled');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorRing.classList.remove('labeled');
+        });
     });
 }
 
@@ -213,21 +330,26 @@ if (isFinePointer && !prefersReducedMotion) {
 }
 
 // ============================================================
-// Project card tilt effect
+// Copy email to clipboard
 // ============================================================
-if (isFinePointer && !prefersReducedMotion) {
-    document.querySelectorAll('.tilt').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const px = (e.clientX - rect.left) / rect.width - 0.5;
-            const py = (e.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform = `perspective(800px) rotateX(${py * -6}deg) rotateY(${px * 8}deg) translateY(-4px)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-        });
+(function initEmailCopy() {
+    const btn = document.getElementById('emailCopy');
+    const toast = document.getElementById('toast');
+    if (!btn) return;
+
+    btn.addEventListener('click', async () => {
+        const email = btn.getAttribute('data-email');
+        try {
+            await navigator.clipboard.writeText(email);
+        } catch (err) {
+            // Clipboard API unavailable — fall back silently, link still visible to copy manually.
+        }
+        if (toast) {
+            toast.classList.add('visible');
+            setTimeout(() => toast.classList.remove('visible'), 1800);
+        }
     });
-}
+})();
 
 // ============================================================
 // Contact form (EmailJS)
@@ -248,7 +370,7 @@ if (form) {
 
             emailjs.send('service_a4u7y3q', 'template_xf34a4r', templateParams)
                 .then(() => {
-                    formMessage.style.color = '#5eead4';
+                    formMessage.style.color = '#d9ff4b';
                     formMessage.textContent = `Thanks ${name}! Your message has been sent.`;
                     form.reset();
                 }, (error) => {
@@ -264,9 +386,9 @@ if (form) {
 }
 
 // ============================================================
-// Living background — drifting constellation / trajectory field
+// Living background — drifting constellation field
 // ============================================================
-(function initBackgroundfield() {
+(function initBackgroundField() {
     const canvas = document.getElementById('bgCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -278,13 +400,13 @@ if (form) {
     }
 
     function createParticles() {
-        const count = prefersReducedMotion ? 0 : Math.min(70, Math.floor((width * height) / 22000));
+        const count = prefersReducedMotion ? 0 : Math.min(60, Math.floor((width * height) / 26000));
         particles = Array.from({ length: count }, () => ({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            r: Math.random() * 1.4 + 0.6,
+            vx: (Math.random() - 0.5) * 0.22,
+            vy: (Math.random() - 0.5) * 0.22,
+            r: Math.random() * 1.3 + 0.5,
         }));
     }
 
@@ -299,10 +421,10 @@ if (form) {
                 const dx = p.x - mouse.x;
                 const dy = p.y - mouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
-                    const force = (120 - dist) / 120;
-                    p.x += (dx / dist) * force * 0.6;
-                    p.y += (dy / dist) * force * 0.6;
+                if (dist < 110) {
+                    const force = (110 - dist) / 110;
+                    p.x += (dx / dist) * force * 0.5;
+                    p.y += (dy / dist) * force * 0.5;
                 }
             }
 
@@ -312,21 +434,21 @@ if (form) {
             if (p.y > height) p.y = 0;
         });
 
-        ctx.fillStyle = 'rgba(94, 234, 212, 0.55)';
+        ctx.fillStyle = 'rgba(217, 255, 75, 0.4)';
         particles.forEach(p => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
             ctx.fill();
         });
 
-        const maxDist = 130;
+        const maxDist = 120;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const a = particles[i], b = particles[j];
                 const dx = a.x - b.x, dy = a.y - b.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < maxDist) {
-                    ctx.strokeStyle = `rgba(167, 139, 250, ${0.14 * (1 - dist / maxDist)})`;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist / maxDist)})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
