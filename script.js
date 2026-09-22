@@ -53,6 +53,7 @@ function closeMenu() {
     menuOverlay.classList.remove('open');
     menuOverlay.setAttribute('aria-hidden', 'true');
     if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
 }
 
 function openMenu() {
@@ -60,6 +61,8 @@ function openMenu() {
     menuOverlay.classList.add('open');
     menuOverlay.setAttribute('aria-hidden', 'false');
     if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    menuOverlay.scrollTop = 0;
 }
 
 if (menuToggle && menuOverlay) {
